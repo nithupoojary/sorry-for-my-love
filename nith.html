@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 380px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #e63950;
+    }
+
+    .poem {
+      display: none;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.8;
+      margin-top: 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 6s infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>My Love ❤️</h1>
+    <p>Tap the button… this is from my heart 🥺</p>
+    <button onclick="showPoem()">Tap Here 💌</button>
+
+    <div class="poem" id="poem">
+      <p>
+        I’m sorry, my love… truly sorry 🌸<br><br>
+
+        If my words hurt you,<br>
+        if my silence broke you,<br>
+        please forgive me for the pain I caused 💔<br><br>
+
+        Today I bow down,<br>
+        touching your feet with all my heart 🙏<br>
+        not because I am weak,<br>
+        but because my love for you is pure and true ❤️<br><br>
+
+        You are my peace, my strength, my home.<br>
+        Without your smile, my world feels empty 🌍<br><br>
+
+        Please forgive me…<br>
+        hold my hand again 🤍<br>
+        I promise to love you better, forever ♾️
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showPoem() {
+      document.getElementById("poem").style.display = "block";
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
